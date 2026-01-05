@@ -1,0 +1,9 @@
+{
+  "rules": {
+    ".read": true,
+    ".write": true,
+    "audios": {
+      ".indexOn": ["category", "hymnNumber", "bookId", "chapterNumber", "language"]
+    }
+  }
+}
