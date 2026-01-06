@@ -3,6 +3,7 @@ import { Link, useRouter } from 'expo-router';
 import { useState } from 'react';
 import Colors from '../../constants/Colors';
 import { Ionicons } from '@expo/vector-icons';
+import DivineSongsScreen from '../../components/DivineSongsScreen';
 
 // My Resources - main library items
 const myResources = [
@@ -89,11 +90,15 @@ const discoverResources = [
 export default function LibraryScreen() {
     const router = useRouter();
     const [activeTab, setActiveTab] = useState('myResources');
+    const [showDivineSongs, setShowDivineSongs] = useState(false);
 
     const currentResources = activeTab === 'myResources' ? myResources : discoverResources;
 
     const handleItemPress = (item) => {
-        if (item.route) {
+        if (item.id === '4') {
+            // Divine Songs
+            setShowDivineSongs(true);
+        } else if (item.route) {
             router.push(item.route);
         }
     };
@@ -210,6 +215,12 @@ export default function LibraryScreen() {
             >
                 {currentResources.map(renderResourceCard)}
             </ScrollView>
+
+            {/* Divine Songs Screen */}
+            <DivineSongsScreen
+                visible={showDivineSongs}
+                onClose={() => setShowDivineSongs(false)}
+            />
         </SafeAreaView>
     );
 }

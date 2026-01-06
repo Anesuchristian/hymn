@@ -10,9 +10,15 @@ export default function CommissionChapterScreen() {
   const { chapterNumber, initialLanguage, bookId } = useLocalSearchParams();
   const [language, setLanguage] = useState(initialLanguage || 'en');
 
+  // Debug log
+  console.log('CommissionChapterScreen params:', { chapterNumber, initialLanguage, bookId });
+
   // Select correct data source based on bookId
   const chaptersData = bookId === '2' ? commissionChaptersPart2 : commissionChapters;
   const chapterData = chaptersData[chapterNumber]?.[language];
+
+  // Debug log
+  console.log('chapterData:', chapterData ? 'found' : 'not found', 'content type:', typeof chapterData?.content);
 
   const bookTitle = bookId === '2' 
     ? 'Divine Commission Part 2'
