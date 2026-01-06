@@ -104,7 +104,7 @@ export default function WelcomeScreen({ onDismiss }) {
             useNativeDriver: true,
         }).start();
 
-        // Auto-dismiss after 4 seconds
+        // Auto-dismiss after 6 seconds
         setTimeout(() => {
             Animated.timing(fadeAnim, {
                 toValue: 0,
@@ -113,7 +113,7 @@ export default function WelcomeScreen({ onDismiss }) {
             }).start(() => {
                 if (onDismiss) onDismiss();
             });
-        }, 4000);
+        }, 6000);
     }, []);
 
     return (
@@ -167,7 +167,7 @@ export default function WelcomeScreen({ onDismiss }) {
                     ]}
                 >
                     <Image
-                        source={{ uri: 'https://zimbanews.co.zw/wp-content/uploads/2025/11/mwazha--1024x683.jpg' }}
+                        source={{ uri: 'https://iharare.com/wp-content/uploads/2020/02/Paul-Mwazha.jpg' }}
                         style={styles.image}
                         resizeMode="cover"
                     />
